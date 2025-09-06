@@ -19,10 +19,16 @@ Ce projet WordPress est configuré pour être déployé sur Coolify avec Docker.
    git push -u origin main
    ```
 
-2. **Déployer sur Coolify**
+2. **Configurer les variables d'environnement dans Coolify**
+   
+   - Copiez le contenu du fichier `coolify-env-import.txt` (local uniquement)
+   - Dans Coolify, ajoutez ces variables d'environnement
+   - **IMPORTANT** : Ce fichier n'est pas committé pour la sécurité
+
+3. **Déployer sur Coolify**
    - Connectez votre repository GitHub à Coolify
    - Sélectionnez le Dockerfile comme méthode de build
-   - **Aucune configuration supplémentaire nécessaire** - tout est déjà dans wp-config.php
+   - Configurez les variables d'environnement
    - Lancez le déploiement
 
 ### 🔧 Développement local

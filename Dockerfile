@@ -14,7 +14,8 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# wp-config.php is already configured with production values
+# Copy environment-based wp-config
+RUN cp wp-config-env.php wp-config.php
 
 # Expose port 80
 EXPOSE 80

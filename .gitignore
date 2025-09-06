@@ -39,6 +39,7 @@ yarn-error.log*
 .env
 .env.local
 .env.production
+coolify-env-import.txt
 
 # Temporary files
 *.tmp
