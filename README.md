@@ -19,36 +19,10 @@ Ce projet WordPress est configuré pour être déployé sur Coolify avec Docker.
    git push -u origin main
    ```
 
-2. **Configurer les variables d'environnement dans Coolify**
-   
-   Dans l'interface Coolify, ajoutez ces variables d'environnement :
-   
-   ```env
-   # Database Configuration
-   DB_NAME=votre_nom_db
-   DB_USER=votre_utilisateur_db
-   DB_PASSWORD=votre_mot_de_passe_db
-   DB_HOST=mysql:3306
-   
-   # WordPress URLs
-   WP_HOME=https://votre-domaine.com
-   WP_SITEURL=https://votre-domaine.com
-   
-   # Security Keys (générez de nouvelles clés via https://api.wordpress.org/secret-key/1.1/salt/)
-   AUTH_KEY=votre_cle_auth
-   SECURE_AUTH_KEY=votre_cle_secure_auth
-   LOGGED_IN_KEY=votre_cle_logged_in
-   NONCE_KEY=votre_cle_nonce
-   AUTH_SALT=votre_salt_auth
-   SECURE_AUTH_SALT=votre_salt_secure_auth
-   LOGGED_IN_SALT=votre_salt_logged_in
-   NONCE_SALT=votre_salt_nonce
-   ```
-
-3. **Déployer sur Coolify**
+2. **Déployer sur Coolify**
    - Connectez votre repository GitHub à Coolify
    - Sélectionnez le Dockerfile comme méthode de build
-   - Configurez les variables d'environnement
+   - **Aucune configuration supplémentaire nécessaire** - tout est déjà dans wp-config.php
    - Lancez le déploiement
 
 ### 🔧 Développement local
@@ -59,11 +33,6 @@ Pour développer localement :
 # Cloner le repository
 git clone https://github.com/votre-username/xulinos-wp.git
 cd xulinos-wp
-
-# Copier le fichier d'environnement
-cp env.example .env
-
-# Modifier les variables dans .env selon vos besoins
 
 # Lancer avec Docker Compose
 docker-compose up -d
@@ -77,23 +46,20 @@ Le site sera accessible sur `http://localhost:8080`
 xulinos-wp/
 ├── Dockerfile              # Configuration Docker pour la production
 ├── docker-compose.yml      # Configuration pour le développement local
-├── coolify.yml            # Configuration spécifique à Coolify
-├── wp-config-production.php # Configuration WordPress pour la production
-├── env.example            # Exemple de variables d'environnement
+├── wp-config.php          # Configuration WordPress (déjà configurée)
 ├── .gitignore             # Fichiers à ignorer par Git
 └── README.md              # Ce fichier
 ```
 
 ### 🔐 Sécurité
 
-- Les clés de sécurité WordPress sont configurées via les variables d'environnement
-- Le fichier `wp-config.php` n'est pas versionné (dans .gitignore)
+- Les clés de sécurité WordPress sont déjà configurées dans wp-config.php
 - Les uploads et caches sont exclus du versioning
 - Configuration de sécurité activée en production
 
 ### 📝 Notes importantes
 
-- Assurez-vous de générer de nouvelles clés de sécurité pour la production
+- Les clés de sécurité sont déjà configurées
 - Configurez un certificat SSL pour votre domaine
 - Sauvegardez régulièrement votre base de données
 - Surveillez les logs d'erreur en production
