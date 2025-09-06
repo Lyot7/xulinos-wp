@@ -25,17 +25,16 @@ Ce projet WordPress est configuré pour être déployé sur Coolify avec Docker.
    
    ```env
    # Database Configuration
-   DB_NAME=wordpress
-   DB_USER=wordpress
-   DB_PASSWORD=votre_mot_de_passe_securise
+   DB_NAME=votre_nom_db
+   DB_USER=votre_utilisateur_db
+   DB_PASSWORD=votre_mot_de_passe_db
    DB_HOST=mysql:3306
    
-   # WordPress Configuration
-   WP_DEBUG=false
-   WP_DEBUG_LOG=false
-   WP_DEBUG_DISPLAY=false
+   # WordPress URLs
+   WP_HOME=https://votre-domaine.com
+   WP_SITEURL=https://votre-domaine.com
    
-   # Security Keys (générez de nouvelles clés pour la production)
+   # Security Keys (générez de nouvelles clés via https://api.wordpress.org/secret-key/1.1/salt/)
    AUTH_KEY=votre_cle_auth
    SECURE_AUTH_KEY=votre_cle_secure_auth
    LOGGED_IN_KEY=votre_cle_logged_in
@@ -44,13 +43,6 @@ Ce projet WordPress est configuré pour être déployé sur Coolify avec Docker.
    SECURE_AUTH_SALT=votre_salt_secure_auth
    LOGGED_IN_SALT=votre_salt_logged_in
    NONCE_SALT=votre_salt_nonce
-   
-   # WordPress URLs
-   WP_HOME=https://votre-domaine.com
-   WP_SITEURL=https://votre-domaine.com
-   
-   # Table Prefix
-   TABLE_PREFIX=wp_
    ```
 
 3. **Déployer sur Coolify**
